@@ -1,0 +1,40 @@
+/*
+ Theme Name:   Enfold Child - by juanda
+ Template:     enfold
+*/
+
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+#avia-menu li a{border:none !important;}
+#header_main #header_main_alternate {
+	/*border:none;*/
+	background-color: #6d6e71;
+}
+#avia-menu li a{color: white;}
+.title_container{background-color: #c5e953;}
+.subtext {
+position: absolute;
+top: 30px;
+font-size: 12px;
+
+}
+.subtext .logo-title{
+color: #6d6e71;
+}
+.subtext .logo-title .arasaac-color{
+	color: #8bb33f;
+}
+body {
+font-size: 15px;
+}
+.main_menu ul:first-child > li > a { font-size: 14px !important; }
+
+.logo2{
+position: absolute;
+top: 8px;
+right: 0;
+}
+.header_scrolled .logo2 img {
+height: 50px !important;
+}

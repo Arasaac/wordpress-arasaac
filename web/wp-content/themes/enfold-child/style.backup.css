@@ -1,0 +1,99 @@
+/*
+ Theme Name:   Enfold Child - by juanda
+ Template:     enfold
+*/
+
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+.av_textblock_section{
+
+    float: left;
+    margin-top: 30px;
+
+}
+#header_main{background-color: currentColor;} 
+#header_main_alternate{background-color: #fff;} 
+.logo2 {float: right;}
+strong.logo {width:1030px;} 
+@media only screen and (max-width: 1100px){ 
+	strong.logo {width:900px;} 
+}
+@media only screen and (max-width: 973px){ 
+	strong.logo {width:700px;} 
+}
+.content{padding-top:20px;}
+body{font-size:14px;}
+table.google-visualization-orgchart-table {
+width:auto;
+}
+table.google-visualization-orgchart-table strong{
+color: #e45614;
+}
+table.google-visualization-orgchart-table td{
+color: white;
+}
+table.google-visualization-orgchart-table tr th:first-child, table.google-visualization-orgchart-table tr td:first-child{
+        border-left-style: solid;
+        border-left-width: 0px !important;
+}
+
+table.google-visualization-orgchart-table tr:first-child th, table.google-visualization-orgchart-table tr:first-child td{
+        border-top-style: solid;
+        border-top-width: 0px !important;
+}
+.google-visualization-orgchart-node {
+border-width: 0px !important;
+}
+.google-visualization-orgchart-node {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px !important;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px !important;
+background-color: #333 !important;
+background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#444444)) !important;
+
+}
+.google-visualization-orgchart-linenode {
+background-color: #ffffff !important;
+}
+footer img{
+ float:left;
+ max-height: 35px;
+ margin: 5px 20px 5px 0px;
+}
+#footer .widgettitle{
+color: #333;
+}
+#av_section_1{
+min-height: 50px;
+}
+#av_section_1 .content{
+ padding-top:0px;
+ padding-bottom: 20px;
+}
+
+/*.blog-meta .small-preview {
+background-color: white !important;
+}*/
+.gce-list-event, .gce-tooltip-event{
+background-color: #E45614 !important;
+color: white !important;
+}
+.banderas {
+top: 1px;
+position: relative;
+}
+@media only screen and (max-width: 768px){ 
+	.banderas {
+		position:absolute;
+		top: 5px;
+		right: 0px;
+	}
+}
+.gflag{
+padding-right: 5px !important;
+}
+#tr_credit1{display:none;}
+.wu-copyright {display:none;}
+.av-masonry-entry .av-masonry-entry-title {backgrund-color: #CCC !important; color: #E45614 !important;}
+figcaption.av-inner-masonry-content{background-color: #333 !important; color: #E45614 !important;}
+.avia-arrow{background-color: #333 !important;}

@@ -1,0 +1,235 @@
+<?php
+if(!function_exists('avia_logo'))
+{
+        /**
+         * return the logo of the theme. if a logo was uploaded and set at the backend options panel display it
+         * otherwise display the logo file linked in the css file for the .bg-logo class
+         * @return string the logo + url
+         */
+        function avia_logo($use_image = "", $sub = "", $headline_type = "h1", $dimension = "")
+        {
+                $use_image              = apply_filters('avf_logo', $use_image);
+                $headline_type  = apply_filters('avf_logo_headline', $headline_type);
+                $sub                    = apply_filters('avf_logo_subtext',  $sub);
+                $alt                    = apply_filters('avf_logo_alt', get_bloginfo('name'));
+                $link                   = apply_filters('avf_logo_link', home_url('/'));
+
+
+                if($sub) $sub = "<span class='subtext'>$sub</span>";
+                if($dimension === true) $dimension = "height='100' width='300'"; //basically just for better page speed ranking :P
+
+                if($logo = avia_get_option('logo'))
+                {
+                         $logo = apply_filters('avf_logo', $logo);
+                         if(is_numeric($logo)){ $logo = wp_get_attachment_image_src($logo, 'full'); $logo = $logo[0]; }
+                         $logo = "<img {$dimension} src='{$logo}' alt='{$alt}' />";
+			           
+			$logo = "<$headline_type class='logo'><a href='".$link."'>".$logo."$sub</a></$headline_type>";
+                }
+                else
+                {
+                        $logo = get_bloginfo('name');
+                        if($use_image) $logo = "<img {$dimension} src='{$use_image}' alt='{$alt}' title='{$logo}'/>";
+                        $logo = "<$headline_type class='logo bg-logo'><a href='".$link."'>".$logo."$sub</a></$headline_type>";
+                }
+
+                $logo = apply_filters('avf_logo_final_output', $logo, $use_image, $headline_type, $sub, $alt, $link);
+
+                return $logo;
+        }
+        function avia_logo2($use_image = "", $sub = "", $headline_type = "h1", $dimension = "")
+        {
+                $use_image              = apply_filters('avf_logo', $use_image);
+                $headline_type  = apply_filters('avf_logo_headline', $headline_type);
+                $sub                    = apply_filters('avf_logo_subtext',  $sub);
+                $alt                    = apply_filters('avf_logo_alt', get_bloginfo('name'));
+                $link                   = "http://www.cpilosenlaces.com/centro/2014/11/19/politica-de-calidad/";
+
+
+                if($sub) $sub = "<span class='subtext'>$sub</span>";
+                if($dimension === true) $dimension = "height='100' width='300'"; //basically just for better page speed ranking :P
+
+                if($logo = avia_get_option('logo'))
+                {
+                         $logo = apply_filters('avf_logo', $logo);
+                         if(is_numeric($logo)){ $logo = wp_get_attachment_image_src($logo, 'full'); $logo = $logo[0]; }
+                         $logo = "<img id='logocalidad' class='logo2' {$dimension} src='http://www.cpilosenlaces.com/wp-content/uploads/2014/11/logo_calidad.png'/>";
+			           
+			$logo = "<$headline_type class='logo'><a href='".$link."'>".$logo."$sub</a></$headline_type>";
+                }
+                else
+                {
+                        $logo = get_bloginfo('name');
+                        if($use_image) $logo = "<img {$dimension} src='{$use_image}' alt='{$alt}' title='{$logo}'/>";
+                        $logo = "<$headline_type class='logo bg-logo'><a href='".$link."'>".$logo."$sub</a></$headline_type>";
+                }
+
+                $logo = apply_filters('avf_logo_final_output', $logo, $use_image, $headline_type, $sub, $alt, $link);
+
+                return $logo;
+        }
+        function avia_logo3($use_image = "", $sub = "", $headline_type = "h1", $dimension = "")
+        {
+                $use_image              = apply_filters('avf_logo', $use_image);
+                $headline_type  = apply_filters('avf_logo_headline', $headline_type);
+                $sub                    = apply_filters('avf_logo_subtext',  $sub);
+                $alt                    = apply_filters('avf_logo_alt', get_bloginfo('name'));
+                $link                   = "http://www.educaragon.org/";
+
+
+                if($sub) $sub = "<span class='subtext'>$sub</span>";
+                if($dimension === true) $dimension = "height='100' width='300'"; //basically just for better page speed ranking :P
+
+                if($logo = avia_get_option('logo'))
+                {
+                         $logo = apply_filters('avf_logo', $logo);
+                         if(is_numeric($logo)){ $logo = wp_get_attachment_image_src($logo, 'full'); $logo = $logo[0]; }
+                         $logo = "<img class='logo2' {$dimension} src='http://www.cpilosenlaces.com/wp-content/uploads/2014/11/logo_educacion.png'/>";
+			           
+			$logo = "<$headline_type class='logo'><a href='".$link."'>".$logo."$sub</a></$headline_type>";
+                }
+                else
+                {
+                        $logo = get_bloginfo('name');
+                        if($use_image) $logo = "<img {$dimension} src='{$use_image}' alt='{$alt}' title='{$logo}'/>";
+                        $logo = "<$headline_type class='logo bg-logo'><a href='".$link."'>".$logo."$sub</a></$headline_type>";
+                }
+
+                $logo = apply_filters('avf_logo_final_output', $logo, $use_image, $headline_type, $sub, $alt, $link);
+
+                return $logo;
+        }
+}
+//[myjavascript]
+function my_scripts_method() {
+
+	wp_enqueue_script(
+		'google_charts',
+		'https://www.google.com/jsapi',
+		array()
+	);
+	wp_enqueue_script(
+		'custom-script',
+		get_template_directory_uri() . '/js/organigrama.js',
+		array()
+	);
+}
+if(is_home()) add_action('wp_enqueue_scripts', 'my_scripts_method');
+add_filter('avf_ajax_search_function', 'avia_init_relevanssi', 10, 4);
+function avia_init_relevanssi($function_name, $search_query, $search_parameters, $defaults)
+{
+    $function_name = 'avia_relevanssi_search';
+    return $function_name;
+}
+
+function avia_relevanssi_search($search_query, $search_parameters, $defaults)
+{
+    global $query;
+    $tempquery = $query;
+    if(empty($tempquery)) $tempquery = new WP_Query();
+
+    $tempquery->query_vars = $search_parameters;
+    relevanssi_do_query($tempquery);
+    $posts = $tempquery->posts;
+
+    return $posts;
+}
+/*Para el gtranslate o google translate:
+http://www.kriesi.at/documentation/enfold/add-new-or-replace-advanced-layout-builder-elements-from-child-theme/
+*/
+/*add_filter('avia_load_shortcodes', 'avia_include_shortcode_template', 15, 1);
+function avia_include_shortcode_template($paths)
+{
+	$template_url = get_stylesheet_directory();
+    	array_unshift($paths, $template_url.'/shortcodes/');
+
+	return $paths;
+}
+*/
+/*insertado juanda para masonry ordenado*/
+if(!function_exists('avia_custom_query_extension'))
+{
+    function avia_custom_query_extension($query, $params)
+    {
+        global $avia_config;
+        if(!empty($avia_config['avia_custom_query_options']['order']))
+        {
+            $query['order'] = $avia_config['avia_custom_query_options']['order'];
+        }
+
+        if(!empty($avia_config['avia_custom_query_options']['orderby']))
+        {
+            $query['orderby'] = $avia_config['avia_custom_query_options']['orderby'];
+        }
+
+        unset($avia_config['avia_custom_query_options']);
+
+        return $query;
+    }
+
+    add_filter('avia_masonry_entries_query', 'avia_custom_query_extension', 10, 2);
+    add_filter('avia_post_grid_query', 'avia_custom_query_extension', 10, 2);
+    add_filter('avia_post_slide_query', 'avia_custom_query_extension', 10, 2);
+    add_filter('avia_blog_post_query', 'avia_custom_query_extension', 10, 2);
+    add_filter('avf_magazine_entries_query', 'avia_custom_query_extension', 10, 2);
+
+    add_filter('avf_template_builder_shortcode_elements','avia_custom_query_options', 10, 1);
+    function avia_custom_query_options($elements)
+    {
+        $allowed_elements = array('av_blog','av_masonry_entries','av_postslider','av_portfolio','av_magazine');
+
+        if(isset($_POST['params']['allowed']) && in_array($_POST['params']['allowed'], $allowed_elements))
+        {
+            $elements[] = array(
+                "name" => __("Custom Query Orderby",'avia_framework' ),
+                "desc" => __("Set a custom query orderby value",'avia_framework' ),
+                "id"   => "orderby",
+                "type" 	=> "select",
+                "std" 	=> "",
+                "subtype" => array(
+                    __('Default Order',  'avia_framework' ) =>'',
+                    __('Title',  'avia_framework' ) =>'title',
+                    __('Random',  'avia_framework' ) =>'rand',
+                    __('Date',  'avia_framework' ) =>'date',
+                    __('Author',  'avia_framework' ) =>'author',
+                    __('Name (Post Slug)',  'avia_framework' ) =>'name',
+                    __('Modified',  'avia_framework' ) =>'modified',
+                    __('Comment Count',  'avia_framework' ) =>'comment_count',
+                    __('Page Order',  'avia_framework' ) =>'menu_order')
+            );
+
+            $elements[] = array(
+                "name" => __("Custom Query Order",'avia_framework' ),
+                "desc" => __("Set a custom query order",'avia_framework' ),
+                "id"   => "order",
+                "type" 	=> "select",
+                "std" 	=> "",
+                "subtype" => array(
+                    __('Default Order',  'avia_framework' ) =>'',
+                    __('Ascending Order',  'avia_framework' ) =>'ASC',
+                    __('Descending Order',  'avia_framework' ) =>'DESC'));
+        }
+
+        return $elements;
+    }
+
+    add_filter('avf_template_builder_shortcode_meta', 'avia_custom_query_add_query_params_to_config', 10, 4);
+    function avia_custom_query_add_query_params_to_config($meta, $atts, $content, $shortcodename)
+    {
+        global $avia_config;
+        if(empty($avia_config['avia_custom_query_options'])) $avia_config['avia_custom_query_options'] = array();
+
+        if(!empty($atts['order']))
+        {
+            $avia_config['avia_custom_query_options']['order'] = $atts['order'];
+        }
+
+        if(!empty($atts['orderby']))
+        {
+            $avia_config['avia_custom_query_options']['orderby'] = $atts['orderby'];
+        }
+
+        return $meta;
+    }
+}
+
