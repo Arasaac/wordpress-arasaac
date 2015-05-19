@@ -22,7 +22,7 @@ then
   exit 1
 fi
 
-SQL_ARCHIVE="/backups/backup_$1.sql.bz2"
+SQL_ARCHIVE="/backups/backup_$NOMBRE.sql.bz2"
 
 
 if [[ ! -f $SQL_ARCHIVE ]]
