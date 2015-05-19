@@ -18,10 +18,14 @@ Creamos los containers para mysql y apache:
     docker run --name backup-arasaac --volumes-from=web -v $PWD/backups:/backups  --link=mysql:mysql -d arasaac/backup
 
 - Copias de seguridad de la base de datos:
+
     docker exec backup-arasaac backup
 
 - Restauraciones (además del checkout correspondiente para el directorio web)
   - A último backup
-     docker exec backup-arasaac restore
+  
+    docker exec backup-arasaac restore
+
   - A fecha determinada:
+
     docker exec backup-arasaac restore yyyymmdd
