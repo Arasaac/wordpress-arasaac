@@ -1,0 +1,48 @@
+#!/bin/bash
+
+
+if [ -z "$MYSQL_ENV_MYSQL_USER" ]; then echo "Error: MYSQL_ENV_MYSQL_USER not set"; echo "Finished: FAILURE"; exit 1; fi
+if [ -z "$MYSQL_ENV_MYSQL_DATABASE" ]; then echo "Error: MYSQL_ENV_MYSQL_DATABASE not set"; echo "Finished: FAILURE"; exit 1; fi
+if [ -z "$MYSQL_ENV_MYSQL_PASSWORD" ]; then echo "Error: MYSQL_ENV_MYSQL_PASSWORD not set"; echo "Finished: FAILURE"; exit 1; fi
+if [ -z "$MYSQL_PORT_3306_TCP_PORT" ]; then echo "Error: MYSQL_PORT_3306_TCP_PORT not set"; echo "Finished: FAILURE"; exit 1; fi
+
+
+if ! [[ $1 ]]
+then
+  NOMBRE=$(ls -rt backups|cut -c 8-15)
+else
+  NOMBRE=$1
+fi
+
+
+if ! [[ $1 =~ ^[a-zA-Z0-9_-]+$ ]]
+then
+  echo "The given backup name does not match the expected pattern: only characters, digits, underscore and dash are allowed ([a-zA-Z0-9_-])."
+  echo 'Finished: FAILURE'
+  exit 1
+fi
+
+SQL_ARCHIVE="/backups/backup_$1.sql.bz2"
+
+
+if [[ ! -f $SQL_ARCHIVE ]]
+then
+  echo "The file $SQL_ARCHIVE does not exist. Aborting."
+  echo "Finished: FAILURE."
+  exit 1
+fi
+
+# update wp-config.php
+sed -i s/"define('DB_NAME', '.*');"/"define('DB_NAME', '$MYSQL_ENV_MYSQL_DATABASE');"/g /var/www/html/wp-config.php
+sed -i s/"define('DB_USER', '.*');"/"define('DB_USER', '$MYSQL_ENV_MYSQL_USER');"/g /var/www/html/wp-config.php
+sed -i s/"define('DB_PASSWORD', '.*');"/"define('DB_PASSWORD', '$MYSQL_ENV_MYSQL_PASSWORD');"/g /var/www/html/wp-config.php
+sed -i s/"define('DB_HOST', '.*');"/"define('DB_HOST', 'mysql:$MYSQL_PORT_3306_TCP_PORT');"/g /var/www/html/wp-config.php
+
+# set correct file owner
+chown -R www-data:www-data /var/www/html
+
+# restore database
+echo "restoring data from mysql dump file $SQL_ARCHIVE"
+bunzip2 < $SQL_ARCHIVE | mysql -u$MYSQL_ENV_MYSQL_USER -p $MYSQL_ENV_MYSQL_DATABASE -p$MYSQL_ENV_MYSQL_PASSWORD -h mysql 
+
+echo 'Finished: SUCCESS'
