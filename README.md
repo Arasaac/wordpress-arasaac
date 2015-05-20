@@ -1,6 +1,8 @@
 # wordpress-arasaac
 Portal de Noticias para Arasaac
 
+## Instalación
+
 Creamos volúmenes de datos para wordpress y mysql
 
     docker create -v $PWD/bbdd:/var/lib/mysql --name bbdd ubuntu /bin/true
@@ -8,10 +10,23 @@ Creamos volúmenes de datos para wordpress y mysql
 
 Creamos los containers para mysql y apache:
 
-    docker run --volumes-from bbdd --name mysql -e MYSQL_ROOT_PASSWORD="arasaac" -e MYSQL_USER="juanda" -e    MYSQL_PASSWORD="arasaac" -e MYSQL_DATABASE="arasaac" -d mysql 
+    docker run --volumes-from bbdd --name mysql -e MYSQL_ROOT_PASSWORD="arasaac" -d mysql 
     docker run --volumes-from web --name apache --link mysql:mysql -d -p 8080:80 wordpress
 
-Generamos la imagen para las copias de seguridad y ejecutamos el container correspondiente:
+Con esto tenemos un wordpress vacío, para tener los datos actuales:
+
+Si no está hecho previamente, generamos la imagen para las copias de seguridad y ejecutamos el container correspondiente.
+
+    docker build -t arasaac/backup $PWD/backup-image
+    docker run --name backup-arasaac --volumes-from=web -v $PWD/backups:/backups  --link=mysql:mysql -d arasaac/backup
+
+Restauraciones bbdd a último backup
+
+    docker exec backup-arasaac restore
+
+## Copias de Seguridad
+
+Si no está hecho previamente, generamos la imagen para las copias de seguridad y ejecutamos el container correspondiente.
 
     docker build -t arasaac/backup $PWD/backup-image
     docker run --name backup-arasaac --volumes-from=web -v $PWD/backups:/backups  --link=mysql:mysql -d arasaac/backup
