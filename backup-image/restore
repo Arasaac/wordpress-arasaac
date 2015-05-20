@@ -1,9 +1,14 @@
 #!/bin/bash
+ 
+   USUARIO="root"
+if [ -z "$MYSQL_ENV_MYSQL_DATABASE" ]
+then 
+    DATABASE="wordpress"
+else
+	DATABASE= $MYSQL_ENV_MYSQL_DATABASE
+fi
 
-
-if [ -z "$MYSQL_ENV_MYSQL_USER" ]; then echo "Error: MYSQL_ENV_MYSQL_USER not set"; echo "Finished: FAILURE"; exit 1; fi
-if [ -z "$MYSQL_ENV_MYSQL_DATABASE" ]; then echo "Error: MYSQL_ENV_MYSQL_DATABASE not set"; echo "Finished: FAILURE"; exit 1; fi
-if [ -z "$MYSQL_ENV_MYSQL_PASSWORD" ]; then echo "Error: MYSQL_ENV_MYSQL_PASSWORD not set"; echo "Finished: FAILURE"; exit 1; fi
+if [ -z "$MYSQL_ENV_MYSQL_ROOT_PASSWORD" ]; then echo "Error: MYSQL_ENV_MYSQL_ROOT_PASSWORD not set"; echo "Finished: FAILURE"; exit 1; fi
 if [ -z "$MYSQL_PORT_3306_TCP_PORT" ]; then echo "Error: MYSQL_PORT_3306_TCP_PORT not set"; echo "Finished: FAILURE"; exit 1; fi
 
 
@@ -34,6 +39,6 @@ fi
 
 # restore database
 echo "restoring data from mysql dump file $SQL_ARCHIVE"
-bunzip2 < $SQL_ARCHIVE | mysql -u$MYSQL_ENV_MYSQL_USER -p $MYSQL_ENV_MYSQL_DATABASE -p$MYSQL_ENV_MYSQL_PASSWORD -h mysql 
+bunzip2 < $SQL_ARCHIVE | mysql -u$USUARIO -p $DATABASE -p$MYSQL_ENV_MYSQL_ROOT_PASSWORD -h mysql 
 
 echo 'Finished: SUCCESS'
