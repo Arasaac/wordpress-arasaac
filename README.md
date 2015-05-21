@@ -24,6 +24,12 @@ Restauraciones bbdd a último backup
 
     docker exec backup-arasaac restore
 
+## Acceso
+url http://localhost:8080
+usuario: juanda
+pwd: arasaac
+
+
 ## Copias de Seguridad
 
 Si no está hecho previamente, generamos la imagen para las copias de seguridad y ejecutamos el container correspondiente.
