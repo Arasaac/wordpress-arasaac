@@ -3,6 +3,12 @@ Portal de Noticias para Arasaac
 
 ## Instalación
 
+Copiamos el repositorio de github y nos situamos en el directorio
+
+    git clone git@github.com:Arasaac/wordpress-arasaac.git
+    cd wordpress-arasaac
+
+
 Creamos volúmenes de datos para wordpress y mysql
 
     docker create -v $PWD/bbdd:/var/lib/mysql --name bbdd ubuntu /bin/true
@@ -32,6 +38,17 @@ usuario: juanda
 
 pwd: arasaac
 
+## Actualización del repositorio local
+
+Se actualiza el repositorio con los cambios publicados en github:
+
+   git pull git@github.com:Arasaac/wordpress-arasaac.git
+ 
+Se restaura bbdd a último backup
+
+    docker exec backup-arasaac restore
+
+Se podría configurar un github para que la restauración sea automática
 
 ## Copias de Seguridad
 
