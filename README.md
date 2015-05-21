@@ -25,8 +25,11 @@ Restauraciones bbdd a último backup
     docker exec backup-arasaac restore
 
 ## Acceso
+
 url http://localhost:8080
+
 usuario: juanda
+
 pwd: arasaac
 
 
