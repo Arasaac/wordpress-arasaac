@@ -40,9 +40,9 @@ pwd: arasaac
 
 ## Actualización del repositorio local
 
-Se actualiza el repositorio con los cambios publicados en github:
+Se accede al directorio del proyecto y se actualiza el repositorio con los cambios publicados en github:
 
-   git pull git@github.com:Arasaac/wordpress-arasaac.git
+    git pull git@github.com:Arasaac/wordpress-arasaac.git
  
 Se restaura bbdd a último backup
 
