@@ -11,3 +11,37 @@ function after_head_image_func(){
     
 }
 add_action('ava_main_header', 'after_head_image_func');
+
+
+add_action('acf/save_post', 'my_save_post');
+
+function my_save_post( $post_id ) {
+	
+	// bail early if not a contact_form post
+	if( get_post_type($post_id) !== 'materiales' ) {
+		
+		return;
+		
+	}
+	
+		
+	// vars
+	$post = get_post( $post_id );
+	
+	
+	// get custom fields (field group exists for content_form)
+	$name = get_field('autor', $post_id);
+	$email = get_field('correo_electronico', $post_id);
+	
+	
+	// email data
+	$to = 'juandacorreo@gmail.com';
+	$headers = 'From: ' . $name . ' <' . $email . '>' . "\r\n";
+	$subject = $post->post_title;
+	$body = $post->post_content;
+	
+	
+	// send email
+	wp_mail($to, $subject, $body, $headers );
+	
+}
