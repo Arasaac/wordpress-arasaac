@@ -1,6 +1,11 @@
 # wordpress-arasaac
 Portal de Noticias para Arasaac
 
+## Demo
+
+Acceso mediante la url http://www.arasaac.jd:8080
+Se debe configurar previamente el fichero de hosts para que www.arasaac.jd apunte a 178.32.253.90
+
 ## Instalación
 
 Copiamos el repositorio de github y nos situamos en el directorio
