@@ -33,7 +33,7 @@ if($headerS['header_topbar'] == true)
 			            *   the avia_social_media_icons function is located in includes/helper-social-media-php
 			            */
 						$nav = "";
-						
+						echo "<span class='banderas'>" . do_shortcode('[tp widget="default/tpw_default.php"]') . "</span>"; 
 						//display icons
 			            if(strpos( $headerS['header_social'], 'extra_header_active') !== false) echo $icons;
 					
@@ -71,6 +71,7 @@ if($headerS['header_topbar'] == true)
 							
 							
 			        ?>
+			        <!--<div class='banderas'><?php echo do_shortcode('[tp widget="default/tpw_default.php"]'); ?></div> -->
 			      </div>
 		</div>
 
