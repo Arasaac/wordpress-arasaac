@@ -14,7 +14,7 @@ h1, h2 {color: rgb(80,114,16) !important;}
 .header_color .avia-menu-fx {
 background-color: white;
 }
-#footer, .title_container{
+#footer, .title_container, #header_meta{
 	background-color: floralwhite ;
 }
 
