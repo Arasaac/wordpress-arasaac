@@ -96,8 +96,8 @@
 
 				<footer class='container_wrap socket_color' id='socket' <?php avia_markup_helper(array('context' => 'footer')); ?>>
                     <div class='container'>
-			<img src="http://www.cpilosenlaces.com/wp-content/uploads/2014/11/logo_color.png">
-                        <span class='copyright'><?php echo $copyright . $kriesi_at_backlink; ?></span>
+			
+                        <span class='copyright'><?php echo $copyright ?></span>
 
                         <?php
                         	if(avia_get_option('footer_social', 'disabled') != "disabled")

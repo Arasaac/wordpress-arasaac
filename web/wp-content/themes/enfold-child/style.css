@@ -6,19 +6,38 @@
 
 /* =Theme customization starts here
 -------------------------------------------------------------- */
-#avia-menu li a{border:none !important;}
-#header_main #header_main_alternate {
-	/*border:none;*/
-	background-color: #6d6e71;
+/*Colores*/
+#header_main #header_main_alternate, #socket {background-color: rgb(80,114,16);}
+h1, h2 {color: rgb(80,114,16) !important;}
+.copyright{color:white;}
+
+.header_color .avia-menu-fx {
+background-color: white;
 }
+#footer, .title_container{
+	background-color: floralwhite ;
+}
+
+#avia-menu li a{border:none !important;}
+
 #avia-menu li a{color: white;}
-.title_container{background-color: #c5e953;}
 .subtext {
 position: absolute;
-top: 30px;
+top: 38px;
 font-size: 12px;
-
 }
+/*Colores submenú*/
+#top #wrap_all .sub-menu {
+/*background: red;*/
+}
+#top #wrap_all .avia_mega_div {
+/*background: blue;*/
+}
+#top .main_menu .menu ul li a {
+background: rgb(80,114,16);
+}
+
+
 .subtext .logo-title{
 color: #6d6e71;
 }
@@ -33,11 +52,18 @@ font-size: 15px;
 .logo2{
 position: absolute;
 top: 8px;
-right: 0;
+right: 10px;
+}
+.logo3{
+	position: absolute;
+top: 8px;
+left: 10px;
 }
 .header_scrolled .logo2 img {
 height: 50px !important;
 }
+
+.logo img {height: 91px !important;}
 /*Añadimos los idiomas en la parte superior de la página web*/
 .banderas {
 top: 1px;
@@ -51,6 +77,13 @@ float:left;
 	margin-bottom: 0px !important;
 	padding: 4px !important;
 }
+@media only screen and (min-width: 768px) and (max-width: 992px){ 
+	.logo img, .logo2 img, .logo3 img {height: 71px !important;}
+	.subtext { 	top: 22px; font-size: 10px;}
+}
+
+
+
 @media only screen and (max-width: 768px){ 
 	.banderas {
 		position:absolute;
@@ -65,14 +98,17 @@ float:left;
 	margin-right:4px;
 	margin-top:2px;
 }
-@media only screen and (max-width: 768px){ 
+@media only screen and (max-width: 767px){ 
 	#lang_choose {
 		display:none;
 	}
-	.logo2{
-		top:14px;
-		right:100px;
+	.logo2, .logo3{
+		position:static;
+		max-width:45%;
 	}
-	.logo2 img {width:100px;}
-	.logo img{margin-top:12px !important;}
+	.logo2{float:left;}
+	.logo3{float:right;}
+
+	.logo2 img, .logo3 img {margin:5px; height:50px;}
+	.logo img{margin-top:20px !important; height: 110px !important;}
 }
