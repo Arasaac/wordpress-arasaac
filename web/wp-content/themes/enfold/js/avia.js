@@ -1434,7 +1434,7 @@
             
         if(!header.length) return;
         
-        var logo            = $('#header_main .container .logo img, #header_main .container .logo a, #header_main  .logo2 img'),
+        var logo            = $('#header_main .container .logo img, #header_main .container .logo a, #header_main  .logo2 img, .logo3 img'),
             elements        = $('#header_main .container:first, #header_main .main_menu ul:first-child > li > a:not(.avia_mega_div a, #header_main_alternate a)'),
             el_height       = $(elements).filter(':first').height(),
             isMobile        = $.avia_utilities.isMobile,

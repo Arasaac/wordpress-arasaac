@@ -32,14 +32,18 @@
                     
 
 					 if (have_posts()) :
-                    echo "<h3>" . __('Lista de software','avia_framework') . "</h3>";
+
                         while (have_posts()) : the_post();
-                    echo "Autor: ";
-                        the_field('autor'); 
-                    echo "<br>Idiomas: ";
-                        the_field('idiomas');
-                    echo "<br>Contenido: ";
-                     the_content();
+                    		echo "<header class='entry-content-header'>";
+                    		echo "<h2 class='post-title entry-title'  itemprop='headline'>" . get_the_title();
+                    		echo "</h2></header><div class='entry-content' itemprop='text'>";
+                    		echo "Autor: ";
+                        	the_field('autor'); 
+                    		echo "<br>Idiomas: ";
+                        	the_field('idiomas');
+                    		echo "<br>Contenido: ";
+                     		the_content();
+                     		echo "</div>";
                     /*the_post();
                     the_content();
                         echo "<article>";
