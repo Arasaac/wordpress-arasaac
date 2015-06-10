@@ -20,10 +20,14 @@ Creamos volúmenes de datos para wordpress y mysql
     docker create -v $PWD/bbdd:/var/lib/mysql --name bbdd ubuntu /bin/true
     docker create -v $PWD/web:/var/www/html --name web ubuntu /bin/true
 
-Creamos los containers para mysql y apache:
+Creamos el containers para mysql:
 
     docker run --volumes-from bbdd --name mysql -e MYSQL_ROOT_PASSWORD="arasaac" -d mysql 
-    docker run --volumes-from web --name apache --link mysql:mysql -d -p 8080:80 wordpress
+
+Creamos el containers para wordpress, para ello tenemos que generar las imágenes ya que necesitamos las funciones mbstring:
+docker build -t arasaac/php56 $PWD/php5.6-apache-image
+docker build -t arasaac/wordpress422 $PWD/wordpres-4.2.2-image
+docker run --volumes-from web --name apache --link mysql:mysql -d -p 8080:80 arasaac/wordpress422
 
 Con esto tenemos un wordpress vacío, para tener los datos actuales:
 
