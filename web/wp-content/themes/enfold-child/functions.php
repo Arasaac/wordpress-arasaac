@@ -46,3 +46,29 @@ function my_save_post( $post_id ) {
 	wp_mail($to, $subject, $body, $headers );
 	
 }
+
+/*para integrar enfold con custom post types*/
+add_theme_support('avia_template_builder_custom_post_type_grid');
+add_theme_support('add_avia_builder_post_type_option');
+
+
+/*relevanssi*/
+add_filter('avf_ajax_search_function', 'avia_init_relevanssi', 10, 4);
+function avia_init_relevanssi($function_name, $search_query, $search_parameters, $defaults)
+{
+    $function_name = 'avia_relevanssi_search';
+    return $function_name;
+}
+
+function avia_relevanssi_search($search_query, $search_parameters, $defaults)
+{
+    global $query;
+    $tempquery = $query;
+    if(empty($tempquery)) $tempquery = new WP_Query();
+
+    $tempquery->query_vars = $search_parameters;
+    relevanssi_do_query($tempquery);
+    $posts = $tempquery->posts;
+
+    return $posts;
+}
