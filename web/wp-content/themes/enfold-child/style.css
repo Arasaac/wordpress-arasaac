@@ -16,6 +16,10 @@ background-color: #8bba34 !important;
   color: #ffffff !important;
   border-color: #699812 !important;
 }
+.sub-menu li a:hover{
+	font-weight: bold !important;
+  	color: white !important;
+}
 .header_color .avia-menu-fx {
 background-color: white;
 }
