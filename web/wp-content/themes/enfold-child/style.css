@@ -9,8 +9,13 @@
 /*Colores*/
 #header_main #header_main_alternate, #socket {background-color: rgb(80,114,16);}
 h1, h2, .entry-title a, .breadcrumb {color: rgb(80,114,16) !important;}
+a.ajax_search_entry_view_all{background-color: rgb(80,114,16) !important; }
 .copyright{color:white;}
-
+a.ajax_search_entry_view_all:hover{
+background-color: #8bba34 !important;
+  color: #ffffff !important;
+  border-color: #699812 !important;
+}
 .header_color .avia-menu-fx {
 background-color: white;
 }
