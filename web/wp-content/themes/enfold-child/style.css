@@ -2,114 +2,185 @@
  Theme Name:   Enfold Child - by juanda
  Template:     enfold
 */
-
-
 /* =Theme customization starts here
--------------------------------------------------------------- */ /*Colores*/
-#header_main #header_main_alternate, #socket {background-color:
-rgb(80,114,16);} h1, h2, .entry-title a, .breadcrumb {color: rgb(80,114,16)
-!important;} a.ajax_search_entry_view_all{background-color: rgb(80,114,16)
-!important; } .copyright{color:white;} a.ajax_search_entry_view_all:hover{
-background-color: #8bba34 !important;   color: #ffffff !important;   border-
-color: #699812 !important; } .sub-menu li a:hover, .sub-menu .current-menu-
-item a{     font-weight: bold !important;     color: white !important; }
-.header_color .avia-menu-fx { background-color: white; } #footer,
-.title_container, #header_meta{     background-color: floralwhite ; }
+-------------------------------------------------------------- */
+/*Colores*/
 
-#avia-menu li a{border:none !important;}
+#header_main #header_main_alternate,
+#socket {
+    background-color: rgb(80, 114, 16);
+}
 
-#avia-menu li a{color: white;}
+h1,
+h2,
+.entry-title a,
+.breadcrumb {
+    color: rgb(80, 114, 16) !important;
+}
+
+a.ajax_search_entry_view_all {
+    background-color: rgb(80, 114, 16) !important;
+}
+
+.copyright {
+    color: white;
+}
+
+a.ajax_search_entry_view_all:hover {
+    background-color: #8bba34 !important;
+    color: #ffffff !important;
+    border-color: #699812 !important;
+}
+
+.sub-menu li a:hover,
+.sub-menu .current-menu-item a {
+    font-weight: bold !important;
+    color: white !important;
+}
+
+.header_color .avia-menu-fx {
+    background-color: white;
+}
+
+#footer,
+.title_container,
+#header_meta {
+    background-color: floralwhite;
+}
+
+#avia-menu li a {
+    border: none !important;
+}
+
+#avia-menu li a {
+    color: white;
+}
+
 .subtext {
-position: absolute;
-top: 38px;
-font-size: 12px;
+    position: absolute;
+    top: 38px;
+    font-size: 12px;
 }
 /*Colores submenú*/
+
 #top #wrap_all .sub-menu {
-/*background: red;*/
+    /*background: red;*/
 }
+
 #top #wrap_all .avia_mega_div {
-/*background: blue;*/
+    /*background: blue;*/
 }
+
 #top .main_menu .menu ul li a {
-background: rgb(80,114,16);
+    background: rgb(80, 114, 16);
 }
 
+.subtext .logo-title {
+    color: #6d6e71;
+}
 
-.subtext .logo-title{
-color: #6d6e71;
+.subtext .logo-title .arasaac-color {
+    color: #8bb33f;
 }
-.subtext .logo-title .arasaac-color{
-	color: #8bb33f;
-}
+
 body {
-font-size: 15px;
+    font-size: 15px;
 }
-.main_menu ul:first-child > li > a { font-size: 14px !important; }
 
-.logo2{
-position: absolute;
-top: 8px;
-right: 10px;
+.main_menu ul:first-child > li > a {
+    font-size: 14px !important;
 }
-.logo3{
-	position: absolute;
-top: 4px;
-left: 10px;
+
+.logo2 {
+    position: absolute;
+    top: 8px;
+    right: 10px;
 }
+
+.logo3 {
+    position: absolute;
+    top: 4px;
+    left: 10px;
+}
+
 .header_scrolled .logo2 img {
-height: 50px !important;
+    height: 50px !important;
 }
 
-.logo img {height: 91px !important;}
+.logo img {
+    height: 91px !important;
+}
 /*Añadimos los idiomas en la parte superior de la página web*/
+
 .banderas {
-top: 1px;
-position: relative;
-width:500px;
-height: 30px;
-margin:0px;
-float:left;
-}
-.banderas select{
-	margin-bottom: 0px !important;
-	padding: 4px !important;
-}
-@media only screen and (min-width: 768px) and (max-width: 992px){ 
-	.logo img, .logo2 img, .logo3 img {height: 71px !important;}
-	.subtext { 	top: 22px; font-size: 10px;}
+    top: 1px;
+    position: relative;
+    width: 500px;
+    height: 30px;
+    margin: 0px;
+    float: left;
 }
 
-
-
-@media only screen and (max-width: 768px){ 
-	.banderas {
-		position:absolute;
-		top: 1px;
-		left: 1px;
-		width:150px;
-	}
+.banderas select {
+    margin-bottom: 0px !important;
+    padding: 4px !important;
 }
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .logo img,
+    .logo2 img,
+    .logo3 img {
+        height: 71px !important;
+    }
+    .subtext {
+        top: 22px;
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .banderas {
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        width: 150px;
+    }
+}
+
 #lang_choose {
-	float:left;
-	font-size: 13px;
-	margin-right:4px;
-	margin-top:2px;
+    float: left;
+    font-size: 13px;
+    margin-right: 4px;
+    margin-top: 2px;
 }
-@media only screen and (max-width: 767px){ 
-	#lang_choose {
-		display:none;
-	}
-	.logo2, .logo3{
-		position:static;
-		max-width:45%;
-	}
-	.logo2{float:left;}
-	.logo3{float:right;}
 
-	.logo2 img, .logo3 img {margin:5px; height:50px;}
-	.logo img{margin-top:20px !important; height: 110px !important;}
+@media only screen and (max-width: 767px) {
+    #lang_choose {
+        display: none;
+    }
+    .logo2,
+    .logo3 {
+        position: static;
+        max-width: 45%;
+    }
+    .logo2 {
+        float: left;
+    }
+    .logo3 {
+        float: right;
+    }
+    .logo2 img,
+    .logo3 img {
+        margin: 5px;
+        height: 50px;
+    }
+    .logo img {
+        margin-top: 20px !important;
+        height: 110px !important;
+    }
 }
 /*Formularios acf*/
-.acf-field {border:none !important;}
 
+.acf-field {
+    border: none !important;
+}
