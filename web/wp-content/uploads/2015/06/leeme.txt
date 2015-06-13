@@ -1,8 +1,0 @@
-Ejemplos de animaciones con Javascript y/o CSS3
------------------------------------------------
-
-animCSS3.html  - Ejemplos usando transiciones CSS3 con el mínimo imprescindible de Javascript
-animSimple_js.html - Ejemplo de las transparencias usando setInterval
-animSimple_timeout.html - El mismo ejemplo pero usando setTimeout
-animSimple_raf.html - Idem usando el "nuevo" API de requestAnimationFrame
-animacion_timer. html - Un ejemplo de setInterval algo más complejo que el de las transparencias

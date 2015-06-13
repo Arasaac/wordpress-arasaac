@@ -179,6 +179,14 @@ body {
         height: 110px !important;
     }
 }
+
+/*BLOGS*/
+/*En los blog, cambiamos la foto por defecto, pero quitamos el sombreado de atrás que queda mal*/
+.blog-meta a {background-color:white !important;}
+/*Quitamos los datos de autor y taxonomias*/
+/*uppps, no, mejor tocamos el ficheor includes/loop-index.php en nuestro child theme*/
+
+
 /*Formularios acf*/
 
 .acf-field {

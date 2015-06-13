@@ -72,3 +72,18 @@ function avia_relevanssi_search($search_query, $search_parameters, $defaults)
 
     return $posts;
 }
+
+
+/*Cambiar icono por defecto de los posts, mediante plugin default feature image*/
+/*cambiamos según post type:*/
+function dfi_posttype_book ( $dfi_id, $post_id ) {
+  $post = get_post($post_id);
+  if ( 'programa' === $post->post_type ) {
+    return 193; // the image id
+  }
+  else if ( 'material' === $post->post_type ) {
+    return 192; // the image id
+  }
+  return $dfi_id; // the original featured image id
+}
+add_filter( 'dfi_thumbnail_id', 'dfi_posttype_book', 10, 2 );
