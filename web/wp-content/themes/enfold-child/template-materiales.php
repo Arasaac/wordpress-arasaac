@@ -26,14 +26,15 @@
 acf_form(array(
 		'post_id'		=> 'new_post',
 		'post_title'	=> true,
-		'post_content'	=> false,
+		'post_content'	=> true,
+		'post_category' =>'portada',
 		'field_groups'       => array(53),
 		'new_post'		=> array(
 			'post_type'		=> 'material',
-			'post_status'	=> 'publish'
+			'post_status'	=> 'pending' /*pending, publish, draft*/
 		),
-		'return'		=> home_url('contact-form-thank-you'),
-		'submit_value'	=> 'Send'
+		'return'		=> home_url('material-enviado'),
+		'submit_value'	=> 'Publicar material'
 	));
 
 	

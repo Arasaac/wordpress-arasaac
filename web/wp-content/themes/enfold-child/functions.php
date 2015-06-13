@@ -14,38 +14,6 @@ function after_head_image_func(){
 add_action('ava_main_header', 'after_head_image_func');
 
 
-add_action('acf/save_post', 'my_save_post');
-
-function my_save_post( $post_id ) {
-	
-	// bail early if not a contact_form post
-	if( get_post_type($post_id) !== 'materiales' ) {
-		
-		return;
-		
-	}
-	
-		
-	// vars
-	$post = get_post( $post_id );
-	
-	
-	// get custom fields (field group exists for content_form)
-	$name = get_field('autor', $post_id);
-	$email = get_field('correo_electronico', $post_id);
-	
-	
-	// email data
-	$to = 'juandacorreo@gmail.com';
-	$headers = 'From: ' . $name . ' <' . $email . '>' . "\r\n";
-	$subject = $post->post_title;
-	$body = $post->post_content;
-	
-	
-	// send email
-	wp_mail($to, $subject, $body, $headers );
-	
-}
 
 /*para integrar enfold con custom post types*/
 add_theme_support('avia_template_builder_custom_post_type_grid');
@@ -87,3 +55,27 @@ function dfi_posttype_book ( $dfi_id, $post_id ) {
   return $dfi_id; // the original featured image id
 }
 add_filter( 'dfi_thumbnail_id', 'dfi_posttype_book', 10, 2 );
+
+/*envíamos un mensaje cada vez que se publique un material nuevo*/
+add_action('acf/save_post', 'my_save_post');
+function my_save_post( $post_id ) {
+	if( get_post_type($post_id) !== 'material' ) {
+		return;
+	}
+	$post = get_post( $post_id );
+	$name = get_field('autor', $post_id);
+	$email = get_field('correo_electronico', $post_id);
+	$to = 'juandacorreo@gmail.com';
+	$headers = 'From: ' . $name . ' <' . $email . '>' . "\r\n";
+	$subject = 'Nuevo material Arasaac pendiente de publicar:' . $post->post_title;
+	$body = $post->post_content;
+	wp_mail($to, $subject, $body, $headers );
+}
+/* Para poner los mensajes de los formularios en español...?????*/
+add_filter('acf/settings/default_language', 'my_acf_settings_default_language');
+ 
+function my_acf_settings_default_language( $language ) {
+ 
+    return 'es';
+    
+}
