@@ -67,7 +67,7 @@ function my_save_post( $post_id ) {
 	$email = get_field('correo_electronico', $post_id);
 	$to = 'juandacorreo@gmail.com';
 	$headers = 'From: ' . $name . ' <' . $email . '>' . "\r\n";
-	$subject = 'Nuevo material Arasaac pendiente de publicar:' . $post->post_title;
+	$subject = 'eNuevo material Arasaac pendiente de publicar:' . $post->post_title;
 	$body = $post->post_content;
 	wp_mail($to, $subject, $body, $headers );
 }
@@ -79,3 +79,12 @@ function my_acf_settings_default_language( $language ) {
     return 'es';
     
 }
+
+
+function modify_new_url($url){
+
+    return $url . '?filtered=yes';
+
+}
+add_filter('beautiful_filters_new_url', 'modify_new_url');
+
