@@ -97,8 +97,8 @@ msgid "This section lets you control the layout and design of the filter you can
 msgstr "Esta sección te permite controlar la disposición y diseño del filtro que puedes usar en tus páginas de archivo."
 
 #: ../public/partials/beautiful-taxonomy-filters-public-display.php:79
-msgid "All "
-msgstr "Todos"
+msgid "All"
+msgstr "Seleccionar"
 
 #: ../public/partials/beautiful-taxonomy-filters-public-display.php:98
 msgid "Apply filter"

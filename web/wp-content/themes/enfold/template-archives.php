@@ -23,6 +23,7 @@
 				<main class='template-archives content <?php avia_layout_class( 'content' ); ?> units' <?php avia_markup_helper(array('context' => 'content'));?>>
 
                     <div class="entry-content-wrapper entry-content clearfix">
+                    <h1>kkkk</h1>
 
                     <?php
                     //display the actual post content
@@ -49,6 +50,7 @@
 
 					 if (have_posts()) :
                     echo "<h3>" . __('The 20 latest Blog Posts','avia_framework') . "</h3>";
+                    echo "<h2>Hooooooola</h2>";
                     echo "<ul>";
                         while (have_posts()) : the_post();
 
