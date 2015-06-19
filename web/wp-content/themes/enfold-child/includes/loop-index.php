@@ -151,7 +151,7 @@ if (have_posts()) :
                     }
 
                     /*juanda: no mostramos las taxonomias*/
-                    /*
+                    
                     $taxonomies  = get_object_taxonomies(get_post_type($the_id));
                     $cats = '';
                     $excluded_taxonomies =  apply_filters('avf_exclude_taxonomies', array('post_tag','post_format'), get_post_type($the_id), $the_id);
@@ -173,7 +173,7 @@ if (have_posts()) :
                         echo $cats;
                         echo '</span><span class="text-sep text-sep-cat">/</span>';
                     }
-                    */
+                    
                     echo '<span class="blog-author minor-meta">'.__('by','avia_framework')." ";
                     echo '<span class="entry-author-link" '.avia_markup_helper(array('context' => 'author_name','echo'=>false)).'>';
                     echo '<span class="vcard author"><span class="fn">';
