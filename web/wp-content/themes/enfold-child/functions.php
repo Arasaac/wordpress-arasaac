@@ -7,8 +7,8 @@ function kriesi_logo_addition($sub)
     return $sub;
 }
 function after_head_image_func(){
-    echo "<div class='logo2'><img src='http://www.arasaac.jd:8080/wp-content/uploads/2015/05/logo_fse.jpg'></div>";
-    echo "<div class='logo3'><img src='http://www.arasaac.jd:8080/wp-content/uploads/2015/05/logo_gobierno_aragon-e1433605232881.gif'></div>";
+    echo "<div class='logo2'><img src='/wp-content/uploads/2015/05/logo_fse.jpg'></div>";
+    echo "<div class='logo3'><img src='/wp-content/uploads/2015/05/logo_gobierno_aragon-e1433605232881.gif'></div>";
     
 }
 add_action('ava_main_header', 'after_head_image_func');
