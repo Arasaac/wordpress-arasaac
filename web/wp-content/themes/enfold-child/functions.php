@@ -88,3 +88,12 @@ function modify_new_url($url){
 }
 add_filter('beautiful_filters_new_url', 'modify_new_url');
 
+
+/*paginación*/
+add_filter( 'pre_get_posts', 'enfold_customization_search_results' );
+function enfold_customization_search_results( $wp_query ) {
+  if ( is_search() ) {
+    $wp_query->query_vars["posts_per_page"] = 999;
+  }
+}
+

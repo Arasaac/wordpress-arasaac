@@ -47,7 +47,8 @@ if (have_posts()) :
    $current_post['content'] 	= $blog_content == "excerpt_read_more" ? $current_post['content'].'<div class="read-more-link"><a href="'.get_permalink().'" class="more-link">'.__('Read more','avia_framework').'<span class="more-link-arrow">  &rarr;</span></a></div>' : $current_post['content'];
    $current_post['before_content'] = "";
 
-	/*
+
+   	/*
      * ...now apply a filter, based on the post type... (filter function is located in includes/helper-post-format.php)
      */
 	$current_post	= apply_filters( 'post-format-'.$current_post['post_format'], $current_post );
@@ -188,6 +189,51 @@ if (have_posts()) :
             // echo the post content
             echo '<div class="entry-content" '.avia_markup_helper(array('context' => 'entry_content','echo'=>false)).'>';
             echo $content;
+
+            /*Si el post type es de tipo... */
+            ?>
+
+<?php if( have_rows('field_55847b53ea2b7') ): ?>
+
+    <ul class="slides">
+
+    <?php while( have_rows('field_55847b53ea2b7') ): the_row(); 
+
+        // vars
+        //$idioma = get_sub_field('field_55847afbea2b6');
+        $link = get_sub_field('field_55847c7fea2b8');
+
+
+        $idioma = get_sub_field('field_55847afbea2b6');
+        //echo $idiomas['name']; 
+        //print_r ($idioma);
+
+        ?>
+
+        <li class="slide">
+
+            <?php if( $link ): ?>
+                <a href="<?php echo $link; ?>">
+            <?php endif; ?>
+            <?php echo 'Descarga en ' . $idioma->name; ?>
+
+            <?php if( $link ): ?>
+                </a>
+            <?php endif; ?>
+
+        </li>
+
+    <?php endwhile; ?>
+
+    </ul>
+
+<?php endif; ?>
+
+
+<?php
+
+
+
             echo '</div>';
 
             echo '<footer class="entry-footer">';
