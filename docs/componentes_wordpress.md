@@ -25,7 +25,7 @@
 ## Traducciones
 - A mano:
      - [Plugin WPML](https://wpml.org)
-     - Precio: 195$
+     - Precio: $195
          - A favor: La web será totalmente funcional en los ididomas que traduzcamos
          - En contra: Hay que traducir la web :-(
 - Automáticas
@@ -36,6 +36,6 @@
 
 ## Campos personalizados
 - [Plugin Advanced Custom Fields](http://www.advancedcustomfields.com/)
-- Precio 25$
+- Precio $25
 
 
