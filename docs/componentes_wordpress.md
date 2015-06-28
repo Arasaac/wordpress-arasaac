@@ -1,4 +1,3 @@
-
 # Componentes wordpress
 
 ## Plantilla para Wordpress
