@@ -28,10 +28,10 @@ acf_form(array(
 		'field_groups'       => array(99),
 		'new_post'		=> array(
 			'post_type'		=> 'programa',
-			'post_status'	=> 'publish'
+			'post_status'	=> 'pending' /*pending, publish, draft*/
 		),
-		/*'return'		=> home_url('contact-form-thank-you'),*/
-		'submit_value'	=> 'Enviar'
+		'return'		=> home_url('software-enviado'),
+		'submit_value'	=> 'Publicar software'
 	));
 
 	

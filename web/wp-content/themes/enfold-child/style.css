@@ -13,9 +13,21 @@
 
 h1,
 h2,
+h3,
+ h4,
 .entry-title a,
 .breadcrumb {
     color: rgb(80, 114, 16) !important;
+}
+
+h3 {
+    font-size:17px !important;
+    /*border-bottom-color: rgb(80, 114, 16) !important;*/
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+h4{
+    font-size: 16px !important;
 }
 
 a.ajax_search_entry_view_all {
@@ -192,6 +204,9 @@ body {
 .acf-field {
     border: none !important;
 }
+.acf-hidden { display: none !important;}
+.minaltura{height:55px;}
+
 
 /*logo aratools en el sidebar*/
 #text-9{padding-left:50px !important;}
