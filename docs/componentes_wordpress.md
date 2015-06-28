@@ -19,8 +19,7 @@
 - Precio: Gratuito
 
 ## Buscador
-- Plugin Relevanssi
-- [http://sites.fastspring.com/painavasana/product/relevanssipremium&source=rc_front] Licencias
+- [Plugin Relevanssi](http://sites.fastspring.com/painavasana/product/relevanssipremium&source=rc_front) 
 - Precio: 46€
 
 ## Traducciones
