@@ -11,9 +11,6 @@ Acceso al backend:
 
 http://arasaac.catedu.aragon.es:8080/wp-admin
 
-usuario: juanda
-
-pwd: arasaac
 
 ## Instalación
 
