@@ -3,9 +3,12 @@ Portal de Noticias para Arasaac
 
 ## Demo
 
-Acceso mediante la url http://www.arasaac.jd:8080
-
-Se debe configurar previamente el fichero de hosts para que www.arasaac.jd apunte a 178.32.253.90
+Acceso mediante la url http://arasaac.catedu.aragon.es:8080
+Los datos se reinician cada día.
+Acceso al backend:
+http://arasaac.catedu.aragon.es:8080/wp-admin
+usuario: juanda
+pwd: arasaac
 
 ## Instalación
 
