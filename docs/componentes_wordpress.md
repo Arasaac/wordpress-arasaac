@@ -29,6 +29,7 @@
          - En contra: Hay que traducir la web :-(
 - Automáticas
      - [Plugin Transposh](http://transposh.org/es/)
+     - Precio: Gratuito
      - Debemos instalar un servicio de cache tipo memcache
          - A favor: Traducción automática de Google + modificaciones nuestras
          - En contra: El buscador no funcionará en otros idiomas :-(
