@@ -176,10 +176,10 @@ body {
         max-width: 45%;
     }
     .logo2 {
-        float: left;
+        float: right;
     }
     .logo3 {
-        float: right;
+        float: left;
     }
     .logo2 img,
     .logo3 img {
