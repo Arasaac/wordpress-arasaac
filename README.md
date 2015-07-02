@@ -4,10 +4,15 @@ Portal de Noticias para Arasaac
 ## Demo
 
 Acceso mediante la url http://arasaac.catedu.aragon.es:8080
+
 Los datos se reinician cada día.
+
 Acceso al backend:
+
 http://arasaac.catedu.aragon.es:8080/wp-admin
+
 usuario: juanda
+
 pwd: arasaac
 
 ## Instalación
