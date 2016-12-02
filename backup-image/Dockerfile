@@ -2,10 +2,13 @@ FROM ubuntu
 
 MAINTAINER juanda <juandacorreo@gmail.com>
 
-RUN apt-get update
-RUN apt-get install mysql-client -y
-RUN echo Europe/Madrid | sudo tee /etc/timezone && sudo dpkg-reconfigure --frontend noninteractive tzdata
-RUN mkdir /backups
+RUN apt-get update && \
+    apt-get install mysql-client cron bzip2 -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    mkdir /backups
+
+RUN echo Europe/Madrid | tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
 
 ENV BACKUP_TIME 0 3 * * *
 
