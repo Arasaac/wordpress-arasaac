@@ -33,6 +33,13 @@ Creamos el containers para wordpress, para ello tenemos que generar las imágene
 
     docker build -t arasaac/php56 $PWD/php5.6-apache-image
     docker build -t arasaac/wordpress422 $PWD/wordpres-4.2.2-image
+    
+Container para la web, con mapeo para modificar las variables del php.ini:
+
+    docker run --volumes-from web -v $PWD/conf/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini  --name apache --link mysql:mysql -d -p 8080:80 arasaac/wordpress422
+    
+Container para la web SIN modificar las variables del php.ini:
+
     docker run --volumes-from web --name apache --link mysql:mysql -d -p 8080:80 arasaac/wordpress422
 
 Con esto tenemos un wordpress vacío, para tener los datos actuales:
